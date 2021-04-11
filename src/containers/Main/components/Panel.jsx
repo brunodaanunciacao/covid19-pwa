@@ -6,7 +6,7 @@ import { CardPanelContentStyled, ItemStyled } from './style'
 
 const navigatorHasShare = navigator.share
 
-function Panel({ updateAt, onChange, data, country, getCoviddata }) {
+function Panel({ updateAt, onChange, data, country, getCovidData }) {
     const { cases, recovered, deaths, todayCases, todayDeaths } = data
     
     const renderCountries = (country, index) => (
@@ -18,7 +18,7 @@ function Panel({ updateAt, onChange, data, country, getCoviddata }) {
         </MenuItem>
     )
 
-    const textCovid19 = `País: ${country} - Recuperados: ${recovered}`
+    const textCovid19 = `País: ${country} - Recuperados: ${recovered} - Casos de hoje: ${todayCases} - Total de casos: ${cases} - Obitos hoje: ${todayDeaths} - Total de óbitos ${deaths}`
 
     const shareInfo = () => {
         navigator.share(
@@ -64,6 +64,11 @@ function Panel({ updateAt, onChange, data, country, getCoviddata }) {
                     </div>
                 </div>
                 {navigatorHasShare ? renderShareButton : renderCopyButton}
+                <div>
+                    <Button variant="outlined" color="secondary" onClick={getCovidData}>
+                        <img src={RefreshIcon} alt="RefreshIcon" />
+                    </Button>
+                </div>
             </CardPanelContentStyled>
         </Card>
     )

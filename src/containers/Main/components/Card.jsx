@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import ProtoTypes from 'prop-types'
+//import ProtoTypes from 'prop-types'
 import { Card as CardUI } from  '../../../components'
 import {
     LabelStyled,
